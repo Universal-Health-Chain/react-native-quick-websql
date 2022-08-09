@@ -16,9 +16,10 @@ npx pod-install
 See [an example project](./example/src/App.tsx) for more detail.
 
 ```js
-import WebSQLite from "react-native-quick-websql";
-
-const db = WebSQLite.openDatabase('mydb.db')
+import { SQLitePlugin } from "react-native-quick-websql-uhc";
+// check if Platform.OS !== "web"
+const pluginSQLite = new SQLitePlugin() // initializing the class  
+const db = pluginSQLite.openDatabase('mydb.db')
 db.transaction(
   (txn) => {
     console.log('Running transaction')

@@ -1,65 +1,13 @@
-// @ts-ignore
-import customOpenDatabase from 'websql/custom'
-import SQLiteDatabase from './sqlite-database'
-import type {WebsqlDatabase, WebsqlDatabaseCallback} from './websql-database'
 
-const openDB = customOpenDatabase(SQLiteDatabase)
-
-class SQLitePlugin {
-  openDatabase(
-    args: {
-      name: string
-      version: string
-      description: string
-      size: number
-    },
-    callback: WebsqlDatabaseCallback
-  ): WebsqlDatabase
-  openDatabase(
-    name: string,
-    version?: string,
-    description?: string,
-    size?: number,
-    callback?: WebsqlDatabaseCallback
-  ): WebsqlDatabase
-
-  openDatabase(
-    name:
-      | string
-      | {
-          name: string
-          version: string
-          description: string
-          size: number
-        },
-    version?: string | WebsqlDatabaseCallback,
-    description?: string,
-    size?: number,
-    callback?: WebsqlDatabaseCallback
-  ): WebsqlDatabase {
-    if (name && typeof name === 'object') {
-      // accept SQLite Plugin 1-style object here
-      callback = typeof version === 'function' ? version : undefined
-      size = name.size
-      description = name.description
-      version = name.version
-      name = name.name
-    }
-    if (!size) {
-      size = 1
-    }
-    if (!description) {
-      description = name
-    }
-    if (!version) {
-      version = '1.0'
-    }
-    if (typeof name === 'undefined') {
-      throw new Error('please be sure to call: openDatabase("myname.db")')
-    }
-    return openDB(name, version, description, size, callback)
-  }
-}
-
-export default new SQLitePlugin()
+// exporting types
 export * from './websql-database'
+
+// exporting class
+export { SQLitePlugin } from "./sqlite-plugin";
+
+// The SQLitePlugin class is exported instead of exporting an initialized object by default.
+// The SQLitePlugin shall be initialized by a react native project
+// only if a native platform is detected (ios/android)
+// but not in case of web platform (other puglin will be used in that case).
+// import { SQLitePlugin } from "./sqlite-plugin";
+// export default new SQLitePlugin()

@@ -8,12 +8,13 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native'
-import WebSQLite, {
+import {
+  SQLitePlugin,
   WebsqlDatabase,
   SQLTransaction,
   SQLResultSet,
   SQLError,
-} from 'react-native-quick-websql'
+} from 'react-native-quick-websql-uhc'
 import { QuickSQLite } from 'react-native-quick-sqlite'
 
 function databaseName(baseName: string) {
@@ -256,7 +257,8 @@ export default function App() {
 
   const loadAndQueryDB = useCallback(async () => {
     addLog('Opening database ...')
-    const db = WebSQLite.openDatabase(
+    const pluginSQLite = new SQLitePlugin()
+    const db = pluginSQLite.openDatabase(
       databaseName('mydb'),
       undefined,
       undefined,
@@ -272,7 +274,8 @@ export default function App() {
 
   const pragmaTests = async () => {
     addLog('Open separate DB and run PRAGMA tests')
-    const db = WebSQLite.openDatabase(
+    const pluginSQLite = new SQLitePlugin()
+    const db = pluginSQLite.openDatabase(
       databaseName('pragra-test'),
       undefined,
       undefined,
