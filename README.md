@@ -7,7 +7,19 @@ This library provides a [WebSQL](http://www.w3.org/TR/webdatabase/)-compatible A
 ## Installation
 
 ```sh
-yarn add react-native-quick-websql react-native-quick-sqlite
+expo install react-native-quick-websql @universal-health-chain/react-native-quick-sqlite
+```
+or
+```sh
+npm i react-native-quick-websql @universal-health-chain/react-native-quick-sqlite
+```
+or
+```sh
+yarn add react-native-quick-websql @universal-health-chain/react-native-quick-sqlite
+```
+
+and then:
+```sh
 npx pod-install
 ```
 
@@ -16,7 +28,7 @@ npx pod-install
 See [an example project](./example/src/App.tsx) for more detail.
 
 ```js
-import { SQLitePlugin } from "react-native-quick-websql-uhc";
+import { SQLitePlugin } from "@universal-health-chain/react-native-quick-sqlite";
 // check if Platform.OS !== "web"
 const pluginSQLite = new SQLitePlugin() // initializing the class  
 const db = pluginSQLite.openDatabase('mydb.db')

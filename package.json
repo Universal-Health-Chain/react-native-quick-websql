@@ -1,5 +1,5 @@
 {
-  "name": "react-native-quick-websql-uhc",
+  "name": "@universal-health-chain/react-native-quick-websql",
   "version": "0.3.0",
   "description": "Fast WebSQL-compatible SQLite driver for React Native",
   "main": "lib/commonjs/index",
