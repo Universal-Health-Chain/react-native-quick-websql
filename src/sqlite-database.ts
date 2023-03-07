@@ -31,7 +31,7 @@ class SQLiteDatabase {
     try {
       const results: SQLResultSet[] = []
       for (const { sql, args } of queries) {
-        const response = QuickSQLite.executeSql(this._name, sql, args)
+        const response = QuickSQLite.execute(this._name, sql, args)
         const rows: SQLResultSetRowList = Object.assign(
           [...(response.rows?._array || [])],
           {
