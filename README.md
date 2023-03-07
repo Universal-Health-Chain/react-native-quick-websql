@@ -1,4 +1,32 @@
-<h1 align="center">React Native Quick WebSQL</h1>
+Forked from https://github.com/craftzdog/react-native-quick-websql to solve some problems with Jest and to allow using other packages for web (to be used in Expo).
+
+```
+Jest Error:
+node_modules/@craftzdog/pouchdb-adapter-websql-core/src/index.js:2
+    import {
+    ^^^^^^
+    SyntaxError: Cannot use import statement outside a module
+```
+
+To solve this error, it exports the class instead of an instantiated object.
+
+Example:
+
+- instead of the original
+```js
+import WebSQLite from "react-native-quick-websql";
+const db = WebSQLite.openDatabase('mydb.db')
+```
+
+- now you can use it as follows
+``` js
+import { SQLitePlugin } from "react-native-quick-websql-uhc"; // importing the class
+// check if Platform.OS !== "web" before instantiating the SQLite plugin for react native
+const pluginSQLite = new SQLitePlugin() // instance for react native
+const db = pluginSQLite.openDatabase('mydb.db')
+
+```
+
 
 ![cover](https://repository-images.githubusercontent.com/486860084/27ea3b8e-30c4-4acb-9c2c-691b37d9e2a2)
 
