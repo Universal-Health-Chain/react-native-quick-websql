@@ -1,3 +1,7 @@
+![logo](https://avatars.githubusercontent.com/u/57396025?s=200&v=4)
+
+# **React Native Quick WebSQL Plugin**
+
 Forked from https://github.com/craftzdog/react-native-quick-websql to solve some problems with Jest and to allow using other packages for web (to be used in Expo).
 
 ```
@@ -20,11 +24,14 @@ const db = WebSQLite.openDatabase('mydb.db')
 
 - now you can use it as follows
 ``` js
-import { SQLitePlugin } from "react-native-quick-websql-uhc"; // importing the class
-// check if Platform.OS !== "web" before instantiating the SQLite plugin for react native
-const pluginSQLite = new SQLitePlugin() // instance for react native
-const db = pluginSQLite.openDatabase('mydb.db')
+// first import the class
+import { SQLitePlugin } from "react-native-quick-websql-plugin";
 
+// then you can check if Platform.OS !== "web" before instantiating the SQLite plugin for react native
+const pluginSQLite = new SQLitePlugin()
+
+// now you can open the database
+const db = pluginSQLite.openDatabase('mydb.db')
 ```
 
 

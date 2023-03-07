@@ -9,12 +9,12 @@ import {
   FlatList,
 } from 'react-native'
 import {
-  SQLitePlugin,
+  SQLitePlugin, // instantiated in line 260
   WebsqlDatabase,
   SQLTransaction,
   SQLResultSet,
   SQLError,
-} from 'react-native-quick-websql-uhc'
+} from 'react-native-quick-websql-plugin'
 import { QuickSQLite } from 'react-native-quick-sqlite'
 
 function databaseName(baseName: string) {
@@ -254,7 +254,7 @@ export default function App() {
     tx.executeSql('DROP TABLE IF EXISTS Offices;')
     tx.executeSql('DROP TABLE IF EXISTS Departments;')
   }
-
+  // check if Platform.OS !== "web" before instantiating the SQLite plugin for react native
   const loadAndQueryDB = useCallback(async () => {
     addLog('Opening database ...')
     const pluginSQLite = new SQLitePlugin()
