@@ -42,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/craftzdog/react-native-quick-websql/issues"
   },
-  "homepage": "https://github.com/craftzdog/react-native-quick-websql#readme",
+  "homepage": "https://github.com/Universal-Health-Chain/react-native-quick-websql#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
