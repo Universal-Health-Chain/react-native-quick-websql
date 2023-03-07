@@ -42,15 +42,15 @@ This library provides a [WebSQL](http://www.w3.org/TR/webdatabase/)-compatible A
 ## Installation
 
 ```sh
-expo install react-native-quick-websql @universal-health-chain/react-native-quick-sqlite
+expo install @universal-health-chain/react-native-quick-websql-plugin react-native-quick-sqlite
 ```
 or
 ```sh
-npm i react-native-quick-websql @universal-health-chain/react-native-quick-sqlite
+npm i @universal-health-chain/react-native-quick-websql-plugin react-native-quick-sqlite
 ```
 or
 ```sh
-yarn add react-native-quick-websql @universal-health-chain/react-native-quick-sqlite
+yarn add @universal-health-chain/react-native-quick-websql-plugin react-native-quick-sqlite
 ```
 
 and then:
